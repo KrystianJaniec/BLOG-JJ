@@ -1,0 +1,48 @@
+<main>
+	<div class="container body-content span=8 offset=2">
+		<div class="well">
+			<form class="form-horizontal" th:action="@{/post/createPost}" method="POST">
+				<fieldset>
+					<legend class="text-center">New Post</legend>
+					
+					<div class="form-group">
+						<label class="col-sm-4 control-label" for="post_title">Post Title</label>
+						<div class="col-sm-6 ">
+							<input type="text" class="form-control" id="post_title" placeholder="Insert post title" name="title"/>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label class="col-sm-4 control-label" for="post_content">Content</label>
+						<div class="col-sm-6">
+							<textarea class="form-control" rows="6" id="post_content" placeholder="Insert new content" name="content"></textarea>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-4 control-label" for="post_category">Post Category</label>
+						<div class="col-sm-6">
+							<select class="form-control" id="post_category" name="categoryId">
+								<option th:each="category : ${categoryList}" th:value="${category.id}" th:text="${category.categoryName}"></option>
+							</select>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-4 control-label" for="post_tags">Post Tags</label>
+						<div class="col-sm-6">
+							<input type="text" class="form-control" id="post_tags" placeholder="Insert post tags" name="tag"/>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<div class="col-sm-4 col-sm-offset-4">
+							<a class="btn btn-default" th:href="@{/}">Cancel</a>
+							<input type="submit" class="btn btn-primary" value="Submit"/>
+						</div>
+					</div>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+</main>

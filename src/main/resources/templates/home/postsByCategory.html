@@ -1,0 +1,33 @@
+<main>
+    <div class="container body-content">
+        <h1 style="color:darkred" class="text-center">Posts in Category:
+            <th:block th:text="${category.categoryName}"></th:block>
+        </h1>
+
+        <div class="row">
+            <th:block th:each="post : ${posts}">
+                <div class="col-md-6">
+                    <article>
+                        <header>
+                            <h2 th:text="${post.title}"></h2>
+                        </header>
+
+                        <p th:text="${post.summary}"></p>
+
+                        <small class="author" style="color:#122b40" th:text="${post.author.fullName}"></small>
+
+                        <p><a class="btn btn-info btn-xs" th:each="tag : ${post.tags}"
+                              th:href="@{/tag/{tagName}(tagName=${tag.tagName})}"
+                              th:text="${tag.tagName}"></a></p>
+
+                        <footer>
+                            <div class="pull-right">
+                                <a class="btn btn-default btn-xs" th:href="@{/post/{id}(id=${post.id})}">Read more</a>
+                            </div>
+                        </footer>
+                    </article>
+                </div>
+            </th:block>
+        </div>
+    </div>
+</main>

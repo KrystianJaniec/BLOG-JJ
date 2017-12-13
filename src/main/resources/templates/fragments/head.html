@@ -1,0 +1,15 @@
+<head th:fragment="head">
+	<title th:if="${pageTitle}" th:text="${pageTitle}"></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	
+	<img src="/img/site-logo-blog_jj.png" th:src="@{/img/site-logo-blog_jj.png}" class="img-responsive center-block"></img>
+	
+	<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" type="text/css"/>
+	<link rel="shortcut icon" type="image/png" href="/img/favicon.ico" th:href="@{/img/favicon.ico}"/>
+	
+		<div sec:authorize="authenticated">
+			<p class="navbar-text ">Logged: <b sec:authentication="name"></b></p>                        
+        </div>
+        
+</head>

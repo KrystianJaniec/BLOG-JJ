@@ -1,0 +1,52 @@
+<main>
+	<div class="container body-content span=8 offset=2">
+		<div class="well">
+			<form class="form-horizontal" th:action="@{/post/editPost/{id}(id=${post.id})}" method="POST">
+				<fieldset>
+					<legend class="text-center">Edit Post</legend>
+					
+					<div class="form-group">
+						<label class="col-sm-4 control-label" for="post_title">Post Title</label>
+							<div class="col-sm-6 ">
+								<input type="text" class="form-control" id="post_title" placeholder="Insert post Title"
+									   name="title" th:value="${post.title}"/>
+							</div>
+					</div>
+					
+					<div class="form-group">
+						<label class="col-sm-4 control-label" for="post_content">Content</label>
+							<div class="col-sm-6">
+								<textarea class="form-control" rows="6" id="post_content" placeholder="Insert new content"
+										  name="content" th:field="${post.content}"></textarea>
+							</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-4 control-label" for="post_content">Post Category</label>
+							<div class="col-sm-6">
+								<select class="form-control" id="post_category" name="categoryId">
+									<option th:each="category : ${categoryList}" th:value="${category.id}" th:text="${category.categoryName}"
+                                            th:selected="${category.id == post.category.id}">
+                                    </option>
+								</select>
+							</div>
+					</div>
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for="post_tags">Post Tags</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="post_tags" placeholder="Post tags" name="tag" th:value="${tags}"/>
+                        </div>
+                    </div>
+									
+					<div class="form-group">
+						<div class="col-sm-4 col-sm-offset-4">
+							<a class="btn btn-default" th:href="@{/post/{id}(id = ${post.id})}">Cancel</a>
+							<input type="submit" class="btn btn-success" value="Edit"/>
+						</div>
+					</div>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+</main>

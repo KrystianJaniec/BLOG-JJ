@@ -1,0 +1,36 @@
+<main xmlns="http://www.w3.org/1999/html" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="container body-content">
+        <div class="well">
+            <h2>All posts categories</h2>
+
+            <div class="text-center">
+                <a th:href="@{/category/createCategory}" class="btn btn-warning">Create New Category</a>
+            </div>
+
+            <hr></hr>
+
+            <div class="row">
+                <table class="table table-condensed ">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>NAME</th>
+                        <th>ACTIONS</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr th:each="category: ${categoryList}">
+                        <td th:text="${category.id}"></td>
+                        <td th:text="${category.categoryName}"></td>
+                        <td>
+                            <a th:href="@{/category/editCategory/{id}(id=${category.id})}" class="btn btn-success">Edit</a>
+                            <a th:href="@{/category/deleteCategory/{id}(id=${category.id})}" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>

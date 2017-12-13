@@ -1,0 +1,26 @@
+<main>
+    <div class="container body-content span=8 offset=2">
+        <div class="well">
+            <form class="form-horizontal" th:action="@{/category/editCategory/{id}(id=${category.id})}" method="POST">
+                <fieldset>
+                    <legend class="text-center">Edit Post Category</legend>
+
+                    <div class="form-group">
+                        <label class="col-sm-4 contol-label" for="category_name">Category Name</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="category_name" placeholder="Insert new category name"
+                                       name="categoryName" th:value="${category.categoryName}"/>
+                            </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-4 col-sm-offset-4">
+                            <a class="btn btn-default" th:href="@{/category/categoryList}">Cancel</a>
+                            <input type="submit" class="btn btn-success" value="Edit"/>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</main>
